@@ -1,15 +1,20 @@
+function rollDice() {
+    // Generate random numbers between 1 and 6 for each die
+    const dice1 = Math.floor(Math.random() * 6) + 1;
+    const dice2 = Math.floor(Math.random() * 6) + 1;
 
-const truths = ['When did you first realize you liked me?', 'What’s something you’ve never told me?', 'What’s your favorite memory of us?', 'What’s something small I do that you love?', 'Have you ever been jealous in our relationship?', 'Truth #6', 'Truth #7', 'Truth #8', 'Truth #9', 'Truth #10', 'Truth #11', 'Truth #12', 'Truth #13', 'Truth #14', 'Truth #15', 'Truth #16', 'Truth #17', 'Truth #18', 'Truth #19', 'Truth #20', 'Truth #21', 'Truth #22', 'Truth #23', 'Truth #24', 'Truth #25', 'Truth #26', 'Truth #27', 'Truth #28', 'Truth #29', 'Truth #30', 'Truth #31', 'Truth #32', 'Truth #33', 'Truth #34', 'Truth #35', 'Truth #36', 'Truth #37', 'Truth #38', 'Truth #39', 'Truth #40', 'Truth #41', 'Truth #42', 'Truth #43', 'Truth #44', 'Truth #45', 'Truth #46', 'Truth #47', 'Truth #48', 'Truth #49', 'Truth #50', 'Truth #51', 'Truth #52', 'Truth #53', 'Truth #54', 'Truth #55', 'Truth #56', 'Truth #57', 'Truth #58', 'Truth #59', 'Truth #60', 'Truth #61', 'Truth #62', 'Truth #63', 'Truth #64', 'Truth #65', 'Truth #66', 'Truth #67', 'Truth #68', 'Truth #69', 'Truth #70', 'Truth #71', 'Truth #72', 'Truth #73', 'Truth #74', 'Truth #75', 'Truth #76', 'Truth #77', 'Truth #78', 'Truth #79', 'Truth #80', 'Truth #81', 'Truth #82', 'Truth #83', 'Truth #84', 'Truth #85', 'Truth #86', 'Truth #87', 'Truth #88', 'Truth #89', 'Truth #90', 'Truth #91', 'Truth #92', 'Truth #93', 'Truth #94', 'Truth #95', 'Truth #96', 'Truth #97', 'Truth #98', 'Truth #99', 'Truth #100'];
-const dares = ['Send me a flirty voice note 😉', 'Text me something romantic right now 💌', 'Give me a nickname you’ve never used before', 'Draw a heart and send it to me ❤️', 'Sing a love song for me (even badly 🎤)', 'Dare #6', 'Dare #7', 'Dare #8', 'Dare #9', 'Dare #10', 'Dare #11', 'Dare #12', 'Dare #13', 'Dare #14', 'Dare #15', 'Dare #16', 'Dare #17', 'Dare #18', 'Dare #19', 'Dare #20', 'Dare #21', 'Dare #22', 'Dare #23', 'Dare #24', 'Dare #25', 'Dare #26', 'Dare #27', 'Dare #28', 'Dare #29', 'Dare #30', 'Dare #31', 'Dare #32', 'Dare #33', 'Dare #34', 'Dare #35', 'Dare #36', 'Dare #37', 'Dare #38', 'Dare #39', 'Dare #40', 'Dare #41', 'Dare #42', 'Dare #43', 'Dare #44', 'Dare #45', 'Dare #46', 'Dare #47', 'Dare #48', 'Dare #49', 'Dare #50', 'Dare #51', 'Dare #52', 'Dare #53', 'Dare #54', 'Dare #55', 'Dare #56', 'Dare #57', 'Dare #58', 'Dare #59', 'Dare #60', 'Dare #61', 'Dare #62', 'Dare #63', 'Dare #64', 'Dare #65', 'Dare #66', 'Dare #67', 'Dare #68', 'Dare #69', 'Dare #70', 'Dare #71', 'Dare #72', 'Dare #73', 'Dare #74', 'Dare #75', 'Dare #76', 'Dare #77', 'Dare #78', 'Dare #79', 'Dare #80', 'Dare #81', 'Dare #82', 'Dare #83', 'Dare #84', 'Dare #85', 'Dare #86', 'Dare #87', 'Dare #88', 'Dare #89', 'Dare #90', 'Dare #91', 'Dare #92', 'Dare #93', 'Dare #94', 'Dare #95', 'Dare #96', 'Dare #97', 'Dare #98', 'Dare #99', 'Dare #100'];
+    // Update the dice display
+    document.getElementById('dice1').textContent = dice1;
+    document.getElementById('dice2').textContent = dice2;
 
-document.getElementById("rollButton").addEventListener("click", () => {
-    const mixed = document.getElementById("mixedToggle").checked;
-    let result;
-    if (mixed) {
-        const all = truths.concat(dares);
-        result = all[Math.floor(Math.random() * all.length)];
+    // Determine the result
+    let resultText;
+    if (dice1 > dice2) {
+        resultText = "You win! 🥳";
+    } else if (dice2 > dice1) {
+        resultText = "I win! 😎";
     } else {
-        result = truths[Math.floor(Math.random() * truths.length)];
+        resultText = "It's a tie! 😘";
     }
-    document.getElementById("result").innerText = result;
-});
+    document.getElementById('result').textContent = resultText;
+}
