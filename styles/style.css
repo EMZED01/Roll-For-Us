@@ -1,64 +1,20 @@
+function rollDice() {
+    // Generate random numbers between 1 and 6 for each die
+    const dice1 = Math.floor(Math.random() * 6) + 1;
+    const dice2 = Math.floor(Math.random() * 6) + 1;
 
-body {
-    font-family: 'Quicksand', sans-serif;
-    background: #ffeef0;
-    color: #4b2e2e;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+    // Update the dice display
+    document.getElementById('dice1').textContent = dice1;
+    document.getElementById('dice2').textContent = dice2;
 
-.container {
-    background: #fff8f2;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-}
-
-h1 {
-    color: #b76e79;
-}
-
-.toggle {
-    margin: 1rem 0;
-    font-size: 0.95rem;
-}
-
-button {
-    background-color: #d08888;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-button:hover {
-    background-color: #c36b6b;
-}
-
-.result-box {
-    margin-top: 2rem;
-    background: #fff0f5;
-    padding: 1.2rem;
-    border-left: 5px solid #f7a9a8;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer {
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    color: #9a6b6b;
+    // Determine the result
+    let resultText;
+    if (dice1 > dice2) {
+        resultText = "You win! 🥳";
+    } else if (dice2 > dice1) {
+        resultText = "I win! 😎";
+    } else {
+        resultText = "It's a tie! 😘";
+    }
+    document.getElementById('result').textContent = resultText;
 }
